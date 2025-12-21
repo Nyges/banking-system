@@ -1,14 +1,19 @@
 import json
-accounts={"admin":{"password":"secretadminpassword"}}
+import user
+import bankOperations
+import report
 
 while True:
-    choice=int(input("Please Login or Create an account\n1. Create Account\n2. Login\n"))
+    choice=input("Please Login or Create an account\n1. Create Account\n2. Login\n")
     if choice==1:
-        newUsername=input("Enter Username: ")
-        newPassword=input("Enter Password: ")
-        accounts.update({newUsername:{"password":newPassword,"balance":0}})
-        print(f"Account '{newUsername}' successfully created, please log in again")
+        user.newAccount(
+            newUsername=input("Enter Username: "),
+            newPassword=input("Enter Password: ").strip(),
+            newFullname=input("Enter Full Name: ").strip().title(),
+            newQuestion=input("Enter Security Question: ").capitalize(),
+            newAnswer=input("Enter Security Answer: ")
+        )
     elif choice==2:
-        print(":)") #todo
+        print("todo")
     else:
-        print("No such option")
+        print("Invalid Choice")
