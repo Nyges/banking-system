@@ -1,4 +1,6 @@
 import json
+import bankOperations
+
 accounts={"admin":{"password":"secretadminpassword"}}
 def newAccount(newUsername,newPassword,newFullname,newQuestion,newAnswer):
     if newUsername in accounts:
@@ -8,3 +10,18 @@ def newAccount(newUsername,newPassword,newFullname,newQuestion,newAnswer):
         print("Account Successfully Created!")
     with open("user.json","w") as userJson:
         json.dump(accounts,userJson,ensure_ascii=False)
+
+def login(enteredUsername,enteredPassword):
+    if enteredUsername in accounts:
+        if accounts[enteredUsername]["password"]==enteredPassword:
+            print(f"Successfully Logged in! Welcome {accounts[enteredUsername]["fullname"].split()[0]}")
+            bankOperations.menu(loggedUser=enteredUsername)
+        else:
+            print("Incorrect Password")
+    else:
+        print("User not found")
+
+def passwordRecovery(enteredUsername):
+    enteredAnswer=str(input(f"Your Security question is: {accounts[enteredUsername]["securityquestion"]}?\n"))
+    if enteredAnswer==accounts[enteredUsername]["answer"]:
+        print(f"Correct Answer! Your account password is '{accounts[enteredUsername]["password"]}'")
