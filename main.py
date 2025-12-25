@@ -22,8 +22,6 @@ while True:
             enteredPassword=input("Please enter your password: ")
         )
     elif choice=="3":
-        user.passwordRecovery(
-            enteredUsername=input("Please enter your username: ")
-        )
+        user.passwordRecovery(enteredUsername=input("Please enter your username: "))
     else:
         print("Invalid Choice")

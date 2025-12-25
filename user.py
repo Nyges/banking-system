@@ -14,14 +14,24 @@ def newAccount(newUsername,newPassword,newFullname,newQuestion,newAnswer):
 def login(enteredUsername,enteredPassword):
     if enteredUsername in accounts:
         if accounts[enteredUsername]["password"]==enteredPassword:
-            print(f"Successfully Logged in! Welcome {accounts[enteredUsername]["fullname"].split()[0]}")
-            bankOperations.menu(loggedUser=enteredUsername)
+            if accounts[enteredUsername]==accounts["admin"]:
+                bankOperations.adminMenu()
+            else:
+                bankOperations.menu(loggedUser=enteredUsername)
         else:
             print("Incorrect Password")
     else:
         print("User not found")
 
 def passwordRecovery(enteredUsername):
-    enteredAnswer=str(input(f"Your Security question is: {accounts[enteredUsername]["securityquestion"]}?\n"))
-    if enteredAnswer==accounts[enteredUsername]["answer"]:
-        print(f"Correct Answer! Your account password is '{accounts[enteredUsername]["password"]}'")
+    if enteredUsername in accounts:
+        if enteredUsername=="admin":
+            print("ADMIN PASSWORD CANNOT BE RECOVERED")
+        else:
+            enteredAnswer=str(input(f"Security Question: {accounts[enteredUsername]["securityquestion"]}\n"))
+            if enteredAnswer==accounts[enteredUsername]["answer"]:
+                print(f"Correct Answer, Your account password is '{accounts[enteredUsername]["password"]}'")
+            else:
+                print("Wrong Answer!")
+    else:
+        print("User not found")

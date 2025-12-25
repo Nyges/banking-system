@@ -1,1 +1,1 @@
-{"admin": {"password": "secretadminpassword"}, "Nyges": {"password": "blabla", "fullname": "Demir Erdo�an", "securityquestion": "Whats your bday", "answer": "17.01.2007", "balance": 250}}
+{"admin": {"password": "secretadminpassword"}, "Nyges": {"password": "blabla2", "fullname": "Demir Erdogan", "securityquestion": "Whats your bday", "answer": "17.01.2007", "balance": 150}, "Nyges2": {"password": "blablabla", "fullname": "Demirius Erdogaus", "securityquestion": "Whats your bday", "answer": "17.01.2007", "balance": 100}}
