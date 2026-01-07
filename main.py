@@ -1,7 +1,6 @@
 import json
 import user
 import bankOperations
-import report
 
 with open("user.json","r") as userJson:
     user.accounts=json.load(userJson)

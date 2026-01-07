@@ -65,7 +65,7 @@ def adminWithdrawal(chosenUser):
         print("ACCOUNT BALANCE INSUFFICIENT")
     else:
         user.accounts[chosenUser]["balance"]-=amount
-        print(f"WITHDRAWAL SUCCESS, REMAINING BALANCE {user.accounts[chosenUser]["balance"]}")
+        print("WITHDRAWAL SUCCESS")
         with open("user.json","w") as userJson:
             json.dump(user.accounts,userJson,ensure_ascii=False)
 
@@ -75,7 +75,7 @@ def adminDeposit(chosenUser):
         print("INVALID AMOUNT")
     else:
         user.accounts[chosenUser]["balance"]+=amount
-        print(f"DEPOSIT SUCCESS, REMAINING BALANCE: {user.accounts[chosenUser]["balance"]}")
+        print("DEPOSIT SUCCESS")
         with open("user.json","w") as userJson:
             json.dump(user.accounts,userJson,ensure_ascii=False)
 
